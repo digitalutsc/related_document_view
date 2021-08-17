@@ -6,7 +6,6 @@ dependencies:
   module:
     - views
 id: views_block__transcription_view_block_1
-theme: bartik
 region: content
 weight: 0
 provider: null

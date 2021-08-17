@@ -16,7 +16,7 @@ function related_document_view_help($route_name, RouteMatchInterface $route_matc
     case 'help.page.related_document_view':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('IIIF View for Article') . '</p>';
+      $output .= '<p>' . t('IIIF View for Related Document') . '</p>';
       return $output;
 
     default:

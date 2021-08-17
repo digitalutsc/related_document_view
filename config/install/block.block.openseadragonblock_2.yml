@@ -11,7 +11,7 @@ provider: null
 plugin: openseadragon_block
 settings:
   id: openseadragon_block
-  label: 'Openseadragon Article'
+  label: 'Openseadragon Related Document'
   provider: openseadragon
   label_display: visible
   iiif_manifest_url: 'node/[node:field_related_document:target_id]/[node:field_page_range:value]/related-document-manifest'
