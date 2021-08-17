@@ -1,0 +1,20 @@
+#block-openseadragonblock-2 {
+ float: left;
+ width: 65%;
+}
+
+#block-views-block-transcription-view-block-1 {
+  float:right;
+  width: 32%;
+}
+
+@media (max-width: 767px) {
+  #block-openseadragonblock-2 {
+    width: 100%;
+    float:none;
+  }
+  #block-views-block-transcription-view-block-1  {
+    width: 100%;
+    float:none;
+  }
+}

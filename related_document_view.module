@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains related_document_view.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function related_document_view_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the related_document_view module.
+    case 'help.page.related_document_view':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('IIIF View for Article') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function related_document_view_views_pre_view($view, $display_id, array &$args) {
+  if ($view->id() == "related_document_view_iiif_manifest") {
+    $filters = $view->getHandlers('filter');
+
+    $page = $args[1];
+    $page_info = explode("-", $page);
+
+    if (count($page_info) === 2) {
+      $filters["nid"]["value"]["min"] = trim($page_info[0]);
+      $filters["nid"]["value"]["max"] = trim($page_info[1]);
+    } else if (count($page_info) === 1) {
+      $filters["nid"]["value"]["min"] = trim($page_info[0]);
+    }
+
+    $view->display_handler->overrideOption('filters', $filters);
+  }
+}
+
+function related_document_view_views_pre_render($view) {
+  if (isset($view) && ($view->storage->id() == 'transcription_view')) {
+    $view->element['#attached']['library'][] = 'related_document_view/side_by_side';
+  }
+}
+

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - openseadragon
+id: openseadragonblock_2
+theme: bartik
+region: content
+weight: -3
+provider: null
+plugin: openseadragon_block
+settings:
+  id: openseadragon_block
+  label: 'Openseadragon Article'
+  provider: openseadragon
+  label_display: visible
+  iiif_manifest_url: 'node/[node:field_related_document:target_id]/[node:field_page_range:value]/related-document-manifest'
+visibility: {  }
