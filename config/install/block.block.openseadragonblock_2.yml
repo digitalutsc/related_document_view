@@ -14,5 +14,5 @@ settings:
   label: 'Openseadragon Related Document'
   provider: openseadragon
   label_display: visible
-  iiif_manifest_url: 'node/[node:field_related_document:target_id]/[node:field_page_range:value]/related-document-manifest'
+  iiif_manifest_url: 'node/[node:field_related_document:entity:nid]/[node:field_page_range:value]/related-document-manifest'
 visibility: {  }
