@@ -3,3 +3,5 @@ side_by_side:
   css:
     theme:
       css/side_by_side.css: {}
+  js:
+    js/move_content_below.js: {}
