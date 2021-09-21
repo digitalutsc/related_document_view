@@ -38,7 +38,16 @@ function related_document_view_views_pre_view($view, $display_id, array &$args) 
     }
 
     $view->display_handler->overrideOption('filters', $filters);
-  }
+
+  } elseif ($view->id() == "related_document_view_iiif_manifest_selected_pages") {
+    $filters = $view->getHandlers('filter');
+
+    $page = $args[1];
+    $filters["field_pid_value"]["value"] = $page;
+
+    $view->display_handler->overrideOption('filters', $filters);
+ }
+
 }
 
 function related_document_view_views_pre_render($view) {
