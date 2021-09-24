@@ -5,9 +5,16 @@
 #block-openseadragonblock-2 {
  float: left;
  width: 65%;
+ height: 640px;
+ overflow: scroll;
 }
 
 #block-views-block-transcription-view-block-1 {
+  float:right;
+  width: 32%;
+}
+
+#block-views-block-transcription-editable-block-1 {
   float:right;
   width: 32%;
 }
@@ -21,4 +28,8 @@
     width: 100%;
     float:none;
   }
+  #block-views-block-transcription-editable-block-1  {
+    width: 100%;
+    float:none;
+  }  
 }

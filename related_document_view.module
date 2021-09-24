@@ -90,7 +90,7 @@ function related_document_view_views_pre_view($view, $display_id, array &$args) 
 
 
 function related_document_view_views_pre_render($view) {
-  if (isset($view) && ($view->storage->id() == 'transcription_view')) {
+  if (isset($view) && ($view->storage->id() == 'transcription_view' || $view->storage->id() == 'transcription_editable')) {
     $view->element['#attached']['library'][] = 'related_document_view/side_by_side';
   }
 }
