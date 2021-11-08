@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.default_solr_index_islandora_lite
   module:
     - search_api
+    - related_document_view
 id: transcription_view
 label: 'Transcription View'
 module: views

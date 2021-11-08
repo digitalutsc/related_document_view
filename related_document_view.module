@@ -64,24 +64,44 @@ function related_document_view_views_pre_view($view, $display_id, array &$args) 
     // selected pages referenced the given field
     } else {
 
-      foreach ($page_info as $key => $field_value) {
+      foreach ($page_info as $key => $field_value) { 
         $new_filter = $filters["field_pid_value"];
-        $field_name_id = $field_name . "_value";
-        if ($key > 0) {
-            $field_name_id = $field_name . "_value_" . $key;
-        }
-        $new_filter["id"] = $field_name_id;
-        $new_filter["value"] = $field_value;
+
         $new_filter["table"] = "node__" . $field_name;
         $new_filter["field"] = $field_name . "_value";
-        $filters[$field_name_id] = $new_filter;
-    
+        $new_filter["value"] = $field_value;
+
+        if ($field_name == "nid") {
+          $field_name_id = "nid";
+          $new_filter["table"] = "node_field_data";
+          $new_filter["field"] = "nid";
+          $new_filter["operator"] = "=";
+          $between_op["min"] = "";
+          $between_op["max"] = "";
+          $between_op["value"] = $field_value;
+          $new_filter["value"] = $between_op; 
+          $new_filter["entity_type"] = "node";
+          $new_filter["entity_field"] = "nid";  
+          $new_filter["plugin_id"] = "numeric";  
+        } else {
+          $field_name_id = $field_name . "_value";
+        }
+
+        if ($key > 0) {
+          $field_name_id = $field_name_id . "_" . $key;
+        }        
+
+        $new_filter["id"] = $field_name_id;
+        $filters[$field_name_id] = $new_filter;    
       }
 
       if ($field_name != "field_pid") {
         unset($filters['field_pid_value']);
       }
     }
+
+    $var1 = print_r($filters, true);
+    \Drupal::logger('my_module')->notice($var1);
 
     $view->display_handler->overrideOption('filters', $filters);
   }
