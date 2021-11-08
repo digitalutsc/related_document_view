@@ -5,7 +5,9 @@ dependencies:
     - views.view.transcription_view
   module:
     - views
-    - related_document_view
+  enforced:
+    module:
+      - related_document_view  
 id: views_block__transcription_view_block_1
 region: content
 weight: 0

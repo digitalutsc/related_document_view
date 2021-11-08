@@ -3,8 +3,9 @@ status: true
 dependencies:
   module:
     - openseadragon
-  module:
-    - related_document_view
+  enforced:
+    module:
+      - related_document_view    
 id: openseadragonblock_2
 theme: bartik
 region: content

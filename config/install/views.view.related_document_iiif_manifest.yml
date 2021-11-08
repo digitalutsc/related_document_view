@@ -9,7 +9,9 @@ dependencies:
     - media
     - node
     - rest
-    - related_document_view
+  enforced:
+    module:
+      - related_document_view  
 id: related_document_iiif_manifest
 label: 'Related Document IIIF Manifest'
 module: views
